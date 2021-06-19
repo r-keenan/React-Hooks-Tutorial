@@ -10,7 +10,7 @@ export default function useFetch(url) {
         setState({ data: y, loading: false });
       })
     );
-  }, [url]);
+  }, [url, setState]);
 
   return state;
 }
