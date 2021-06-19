@@ -12,9 +12,9 @@ export default function ApiText() {
   const { data, loading } = useFetch(`http://numbersapi.com/${count}/trivia`);
   return (
     <div style={containerStyle}>
-      <div>{loading ? "loading..." : data}</div>
+      <div>{!data ? "loading..." : data}</div>
       <div>count: {count}</div>
-      <button onClick={() => setCount(count + 1)}>increment</button>
+      <button onClick={() => setCount((count) => count + 1)}>increment</button>
     </div>
   );
 }
