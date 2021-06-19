@@ -5,9 +5,9 @@ export default function HelloHeading() {
     const onMouseMove = (e) => {
       console.log(e);
     };
-    window.addEventListener("mousemove", onMouseMove);
+    // window.addEventListener("mousemove", onMouseMove);
     return () => {
-      window.removeEventListener("mousemove", onMouseMove);
+      //   window.removeEventListener("mousemove", onMouseMove);
     };
   }, []);
 
