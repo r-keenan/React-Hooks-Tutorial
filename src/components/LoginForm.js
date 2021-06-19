@@ -1,30 +1,26 @@
 import React, { useState } from "react";
 
+import useForm from "../customHooks/useForm";
+
 const containerStyle = {
   paddingTop: "30px",
 };
 
 export default function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
+  const [values, handleChange] = useForm({ email: "", password: "" });
   return (
     <div style={containerStyle}>
       <div>
         <label>Email</label>
-        <input
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+        <input name="email" value={values.email} onChange={handleChange} />
       </div>
       <div>
         <label>Password</label>
         <input
           type="password"
           name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={values.password}
+          onChange={handleChange}
         />
       </div>
     </div>
