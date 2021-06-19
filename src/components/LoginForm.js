@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useRef } from "react";
 
 import useForm from "../customHooks/useForm";
 import HelloHeading from "./HelloHeading";
@@ -16,13 +16,20 @@ export default function LoginForm() {
 
   const [showHello, setShowHello] = useState(true);
 
+  const inputRef = useRef();
+
   return (
     <div style={containerStyle}>
       <button onClick={() => setShowHello(!showHello)}>Toggle</button>
       {showHello && <HelloHeading />}
       <div>
         <label>Email</label>
-        <input name="email" value={values.email} onChange={handleChange} />
+        <input
+          name="email"
+          value={values.email}
+          onChange={handleChange}
+          ref={inputRef}
+        />
       </div>
       <div>
         <label>First name</label>
@@ -41,6 +48,15 @@ export default function LoginForm() {
           value={values.password}
           onChange={handleChange}
         />
+      </div>
+      <div>
+        <button
+          onClick={() => {
+            inputRef.current.focus();
+          }}
+        >
+          focus
+        </button>
       </div>
     </div>
   );

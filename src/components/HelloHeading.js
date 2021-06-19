@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 
 const containerStyle = {
   marginBottom: "15px",
@@ -16,6 +16,8 @@ export default function HelloHeading() {
       //   window.removeEventListener("mousemove", onMouseMove);
     };
   }, []);
+  const renders = useRef(0);
+  console.log("hello renders: ", renders.current++);
 
   return (
     <div style={containerStyle}>Hello! Please login with your credentials</div>
