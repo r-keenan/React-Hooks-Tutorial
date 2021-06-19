@@ -1,6 +1,6 @@
 import useFetch from "../customHooks/useFetch";
 
-import React from "react";
+import React, { useState } from "react";
 
 const containerStyle = {
   marginTop: "20px",
@@ -8,6 +8,13 @@ const containerStyle = {
 };
 
 export default function ApiText() {
-  const { data, loading } = useFetch("http://numbersapi.com/43/trivia");
-  return <div style={containerStyle}>{loading ? "loading..." : data}</div>;
+  const [count, setCount] = useState(0);
+  const { data, loading } = useFetch(`http://numbersapi.com/${count}/trivia`);
+  return (
+    <div style={containerStyle}>
+      <div>{loading ? "loading..." : data}</div>
+      <div>count: {count}</div>
+      <button onClick={() => setCount(count + 1)}>increment</button>
+    </div>
+  );
 }

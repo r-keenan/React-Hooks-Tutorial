@@ -1,5 +1,11 @@
 import React, { useEffect } from "react";
 
+const containerStyle = {
+  marginBottom: "15px",
+  marginLeft: "auto",
+  marginRight: "auto",
+};
+
 export default function HelloHeading() {
   useEffect(() => {
     const onMouseMove = (e) => {
@@ -11,5 +17,7 @@ export default function HelloHeading() {
     };
   }, []);
 
-  return <div>Hello! Please login with your credentials</div>;
+  return (
+    <div style={containerStyle}>Hello! Please login with your credentials</div>
+  );
 }
