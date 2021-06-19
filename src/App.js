@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import LoginForm from "./components/LoginForm";
-import apiText from "./components/ApiText";
+import ApiText from "./components/ApiText";
 // function expensiveInitialState(){
 //   return 10;
 // }
@@ -27,7 +27,10 @@ function App() {
       </button>
       <div>count 1: {count}</div>
       <div>count 2: {count2}</div>
-      <apiText />
+      <div>
+        <ApiText />
+      </div>
+
       <LoginForm />
     </div>
   );
