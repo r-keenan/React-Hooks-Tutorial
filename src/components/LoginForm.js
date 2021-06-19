@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useLayoutEffect } from "react";
 
 import useForm from "../customHooks/useForm";
 import HelloHeading from "./HelloHeading";
@@ -17,6 +17,11 @@ export default function LoginForm() {
   const [showHello, setShowHello] = useState(true);
 
   const inputRef = useRef();
+
+  useLayoutEffect(() => {
+    //the function below gets you the dimensions of the element
+    console.log(inputRef.current.getBoundingClientRect());
+  }, []);
 
   return (
     <div style={containerStyle}>
