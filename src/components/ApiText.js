@@ -1,6 +1,7 @@
 import useFetch from "../customHooks/useFetch";
+import useMeasure from "../customHooks/useMeasure";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const containerStyle = {
   marginTop: "20px",
@@ -17,9 +18,14 @@ export default function ApiText() {
     localStorage.setItem("count", JSON.stringify(count));
   }, [count]);
 
+  const [rect, divRef] = useMeasure([data]);
+
   return (
     <div style={containerStyle}>
-      <div>{!data ? "loading..." : data}</div>
+      <div style={{ display: "flex", widthLeft: "auto", widthRight: "auto" }}>
+        <div ref={divRef}>{!data ? "loading..." : data}</div>
+      </div>
+      <pre>{JSON.stringify(rect, null, 2)}</pre>
       <div>count: {count}</div>
       <button onClick={() => setCount((count) => count + 1)}>increment</button>
     </div>
